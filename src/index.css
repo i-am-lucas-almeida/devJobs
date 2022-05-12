@@ -33,6 +33,7 @@ img{
 }
 
 .alert-message{
+    color: rgb(218, 64, 64);
     margin: 5rem auto;
     text-align: center;
 }

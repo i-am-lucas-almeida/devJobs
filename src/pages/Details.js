@@ -1,22 +1,23 @@
+import { useState, useEffect } from "react";
+
 import { useParams } from "react-router-dom";
 import DetailsJob from "../components/DetailsJob";
-
-import { useState, useEffect } from "react";
 
 const Details = () => {
 
     const { id } = useParams();
 
-    const API_URL = 'http://localhost:3000/jobs/' + id;
+    const API_URL = process.env.REACT_APP_API_URL;
 
-    const [jobs, setJobs] = useState('');
-    const [error, setError] = useState();
+    const [jobs, setJobs] = useState();
+    const [error, setError] = useState(false);
 
     useEffect(() => {
 
         try {
 
-            fetch(API_URL)
+            fetch(`${API_URL}/${id}`)
+
                 .then((resp) => resp.json())
                 .then((data) => (
 
@@ -27,17 +28,17 @@ const Details = () => {
         } catch (error) {
 
             console.log(error.message);
-            setError('There was an error loading the data. Return to home page!');
+            setError(true);
 
         }
 
-    }, [API_URL])
+    }, [API_URL, id]);
 
     return (
 
         <>
 
-            {error && <h2 className="alert-message">{error}</h2>}
+            {error && <p className="alert-message">Oops! An error has occurred. <br /> Reload the page or go back to the home.</p>}
 
             {jobs && <DetailsJob key={jobs.id} {...jobs} />}
 

@@ -1,13 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import CardJob from '../components/CardJob';
 import SearchBar from '../components/SearchBar';
 
 const Home = () => {
 
-    const API_URL = 'http://localhost:3000/jobs';
+    const API_URL = process.env.REACT_APP_API_URL;
 
     const [jobs, setJobs] = useState([]);
-    const [error, setError] = useState();
+    const [error, setError] = useState(false);
 
     useEffect(() => {
 
@@ -24,11 +24,11 @@ const Home = () => {
         } catch (error) {
 
             console.log(error.message);
-            setError('There was an error loading the data. Return to home page!');
+            setError(true);
 
         }
 
-    }, [])
+    }, []);
 
     //FILTER EVENTS
 
@@ -59,35 +59,35 @@ const Home = () => {
 
         //pesquisar só local
 
-        if(searchLocal !== '' && searchTag === '') {
+        if (searchLocal !== '' && searchTag === '') {
 
             return items.filter(
-            
-                (item) => 
+
+                (item) =>
                     item.location.toLowerCase().includes(lowerLocal)
-    
+
             );
 
             //pesquisar só por tag
 
-        } else if(searchTag !== '' && searchLocal !== '') {
+        } else if (searchTag !== '' && searchLocal !== '') {
 
             return items.filter(
-            
-                (item) => 
+
+                (item) =>
                     item.position.toLowerCase().includes(lowerSearch) &&
                     item.location.toLowerCase().includes(lowerLocal)
-    
+
             );
 
         } else {
 
             return items.filter(
-            
-                (item) => 
+
+                (item) =>
                     item.position.toLowerCase().includes(lowerSearch) ||
                     item.company.toLowerCase().includes(lowerSearch)
-    
+
             );
 
         }
@@ -109,9 +109,9 @@ const Home = () => {
 
             <SearchBar jobValue={searchTag} jobEvent={handleSearchJob} timeEvent={optionFullTime} optionTime={optionTime} localValue={searchLocal} localEvent={handleSearchLocal} />
 
-            <div className="container__jobs">
+            {error && <p className="alert-message">Oops! An error has occurred. <br /> Reload the page or go back to the home.</p>}
 
-                {error && <h2 className='alert-message'>{error}</h2>}
+            <div className="container__jobs">
 
                 {userSearch(jobs) && userSearch(jobs).map((item) => (
 
