@@ -28,7 +28,7 @@ const Home = () => {
 
         }
 
-    }, []);
+    }, [API_URL]);
 
     //FILTER EVENTS
 
