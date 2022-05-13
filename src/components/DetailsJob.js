@@ -12,7 +12,7 @@ const DetailsJob = ({ company, logo, logoBackground, position, postedAt, contrac
 
                     <div className="details__logo" style={{ backgroundColor: `${logoBackground}` }}>
 
-                        <img src={process.env.PUBLIC_URL + '/' + logo} alt={`${'logo for '}${company}`} />
+                        {<img src={logo && `../${logo}`} alt={`${'logo for '}${company}`} />}
 
                     </div>
 
@@ -20,13 +20,13 @@ const DetailsJob = ({ company, logo, logoBackground, position, postedAt, contrac
 
                         <div>
 
-                            <h2 className='details__name'>{company}</h2>
+                            <h2 className='details__name'>{company && company}</h2>
 
-                            <p>{`${company}${'.com'}`}</p>
+                            <p>{company && `${company}${'.com'}`}</p>
 
                         </div>
 
-                        <a href={website} target='_blank' rel='noreferrer' className='details__button details__website-company'>Company Site</a>
+                        <a href={website && website} target='_blank' rel='noreferrer' className='details__button details__website-company'>Company Site</a>
 
                     </div>
 
@@ -40,33 +40,33 @@ const DetailsJob = ({ company, logo, logoBackground, position, postedAt, contrac
 
                             <div className="details__time">
 
-                                <h3>{postedAt}</h3>
+                                <h3>{postedAt && postedAt}</h3>
                                 <span className='details__separator'>●</span>
-                                <h3>{contract}</h3>
+                                <h3>{contract && contract}</h3>
 
                             </div>
 
-                            <h1 className='details__position'>{position}</h1>
+                            <h1 className='details__position'>{position && position}</h1>
 
-                            <h3 className='details__location'>{location}</h3>
+                            <h3 className='details__location'>{location && location}</h3>
 
                         </div>
 
                         <aside>
 
-                            <a href={apply} target='_blank' rel='noreferrer' className='details__button details__website-apply'>Apply Now</a>
+                            <a href={apply && apply} target='_blank' rel='noreferrer' className='details__button details__website-apply'>Apply Now</a>
 
                         </aside>
 
                     </div>
 
-                    <p className='details__paragraph'>{description}</p>
+                    <p className='details__paragraph'>{description && description}</p>
 
                     <div>
 
                         <h2 className='details__subtitle'>Requirements</h2>
 
-                        <p className='details__paragraph'>{requirements.content}</p>
+                        <p className='details__paragraph'>{requirements.content && requirements.content}</p>
 
                         <ul className='details__required'>
 
@@ -87,7 +87,7 @@ const DetailsJob = ({ company, logo, logoBackground, position, postedAt, contrac
 
                         <h2 className='details__subtitle'>What you will do</h2>
 
-                        <p className='details__paragraph'>{role.content}</p>
+                        <p className='details__paragraph'>{role.content && role.content}</p>
 
                         <ol className='details__role'>
 
@@ -114,15 +114,15 @@ const DetailsJob = ({ company, logo, logoBackground, position, postedAt, contrac
 
                     <div>
 
-                        <h1 className='details__position'>{position}</h1>
+                        <h1 className='details__position'>{position && position}</h1>
 
-                        <p>{company}</p>
+                        <p>{company && company}</p>
 
                     </div>
 
                     <aside>
 
-                        <a href={apply} target='_blank' rel='noreferrer' className='details__button details__website-apply'>Apply Now</a>
+                        <a href={apply && apply} target='_blank' rel='noreferrer' className='details__button details__website-apply'>Apply Now</a>
 
                     </aside>
 

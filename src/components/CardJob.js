@@ -11,31 +11,31 @@ const CardJob = ({id, company, logo, logoBackground, position, postedAt, contrac
 
                 <div className="card__logo" style={{backgroundColor: `${logoBackground}`}}>
 
-                    <img src={logo} alt={`${'logo for '}${company}`} />
+                    <img src={logo && logo} alt={`${'logo for '}${company && company}`} />
 
                 </div>
 
                 <div className="card__time">
 
-                    <h3>{postedAt}</h3>
+                    <h3>{postedAt && postedAt}</h3>
                     <span className='card__separator'>●</span>
-                    <h3>{contract}</h3>
+                    <h3>{contract && contract}</h3>
 
                 </div>
 
                 <div className="card__job">
 
-                    <Link to={`/job/${id}`} className='card__link'>
+                    <Link to={id && `/job/${id}`} className='card__link'>
 
-                        <h2>{position}</h2>
+                        <h2>{position && position}</h2>
 
                     </Link>
 
                 </div>
 
-                <p className='card__company'>{company}</p>
+                <p className='card__company'>{company && company}</p>
 
-                <h3 className="card__location">{location}</h3>
+                <h3 className="card__location">{location && location}</h3>
 
             </div>
 

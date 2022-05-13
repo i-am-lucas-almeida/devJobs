@@ -2,7 +2,7 @@
 
 .card__c{
     background-color: var(--dark-blue);
-    margin: 3rem 0;
+    margin: 3rem 1rem;
     width: 33rem;
     height: 28rem;
     padding: 2rem;
@@ -63,8 +63,7 @@
 @media(max-width: 1100px) {
 
     .card__c{
-        margin: 3rem 0;
-        width: 47%;
+        width: 45%;
         height: 28rem;
     }
 

@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { useState } from 'react';
 
 import searchIcon from '../images/desktop/icon-search.svg';
 import localIcon from '../images/desktop/icon-location.svg';
@@ -9,7 +9,7 @@ const Search = ({ jobValue, jobEvent, timeEvent, optionTime, localValue, localEv
 
     const [modal, setModal] = useState(false);
 
-    function openModal(e){
+    function openModal(e) {
 
         e.preventDefault();
         setModal(true);
@@ -19,8 +19,8 @@ const Search = ({ jobValue, jobEvent, timeEvent, optionTime, localValue, localEv
     function closeModal(e) {
 
         e.preventDefault();
-       
-        if(e.target === document.querySelector('.modal__filter')) {
+
+        if (e.target === document.querySelector('.modal__filter')) {
 
             setModal(false);
 
