@@ -14,7 +14,7 @@
 ## Sobre
 
 devJobs é um site desenvolvido em React Js com vagas de emprego voltadas para dev's. Ele conta com um sistema de filtragem e uma página dedicada aos detalhes
-de cada vaga. Os dados são extraídos de um arquivo JSON local e o progeto é um 
+de cada vaga. Os dados são extraídos de um arquivo JSON local. O projeto é um 
 desafio do site [Frontend Mentor](https://www.frontendmentor.io/challenges/devjobs-web-app-HuvC_LP4l).
 
 ## Ferramentas Usadas
@@ -26,7 +26,7 @@ desafio do site [Frontend Mentor](https://www.frontendmentor.io/challenges/devjo
 ## Lições Aprendidas
 
 Nesse projeto pude exercitar minhas habilidades com consumo de api bem como aprimorar meus conhecimentos em React Js e React Routes. Além de poder implementar pela
-primeira vez uma funcionalidade de carregamento infinito.
+primeira vez funcionalidades de carregamento infinito e filtragem dinâmica.
 
 Estou sempre aberto a ideias e sugestões então, por favor, deixe-me saber se você tem algo a dizer!
 
