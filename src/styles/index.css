@@ -1,12 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
-:root{
-    --purple: #5964E0;
-    --white: #fff;
-    --very-dark-blue: #121721;
-    --dark-blue: #19202D;
-    --soft-blue: #6D7F97;
-}
+@import './variables.css';
 
 *{
     margin: 0;
@@ -18,6 +10,7 @@
 
 html{
     font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
 body{
@@ -33,9 +26,12 @@ img{
 }
 
 .alert-message{
-    color: rgb(218, 64, 64);
-    margin: 5rem auto;
-    text-align: center;
+    color: var(--red);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
 }
 
 .container{

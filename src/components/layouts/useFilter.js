@@ -27,9 +27,7 @@ const useFilter = () => {
 
     function userSearch(items) {
 
-        //pesquisar só local
-
-        if (searchLocal !== '' && searchTag === '') {
+        if (searchLocal && !searchTag) {
 
             return items.filter(
 
@@ -38,9 +36,7 @@ const useFilter = () => {
 
             );
 
-            //pesquisar só por tag
-
-        } else if (searchTag !== '' && searchLocal !== '') {
+        } else if (searchTag && searchLocal) {
 
             return items.filter(
 
@@ -56,7 +52,8 @@ const useFilter = () => {
 
                 (item) =>
                     item.position.toLowerCase().includes(lowerSearch) ||
-                    item.company.toLowerCase().includes(lowerSearch)
+                    item.company.toLowerCase().includes(lowerSearch) ||
+                    item.contract.toLowerCase().includes(lowerSearch)
 
             );
 

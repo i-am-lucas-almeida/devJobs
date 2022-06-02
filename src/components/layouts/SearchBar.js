@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
-import searchIcon from '../images/desktop/icon-search.svg';
-import localIcon from '../images/desktop/icon-location.svg';
-import filterIcon from '../images/mobile/icon-filter.svg';
-import './styles/SearchBar.css';
+import searchIcon from '../../images/desktop/icon-search.svg';
+import localIcon from '../../images/desktop/icon-location.svg';
+import filterIcon from '../../images/mobile/icon-filter.svg';
+import '../styles/SearchBar.css';
 
 const Search = ({ jobValue, jobEvent, timeEvent, optionTime, localValue, localEvent }) => {
 

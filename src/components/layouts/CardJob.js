@@ -1,5 +1,6 @@
-import './styles/CardJob.css';
 import { Link } from 'react-router-dom';
+import 'animate.css';
+import '../styles/CardJob.css';
 
 const CardJob = ({id, company, logo, logoBackground, position, postedAt, contract, location, optionTime}) => {
 
@@ -7,7 +8,7 @@ const CardJob = ({id, company, logo, logoBackground, position, postedAt, contrac
 
         <>
 
-            <div className={contract !== 'Full Time' && optionTime === true ? 'card__c hidden' : 'card__c'}>
+            <div className={`animate__animated animate__fadeIn ${contract !== 'Full Time' && optionTime === true ? 'card__c hidden' : 'card__c'}`}>
 
                 <div className="card__logo" style={{backgroundColor: `${logoBackground}`}}>
 

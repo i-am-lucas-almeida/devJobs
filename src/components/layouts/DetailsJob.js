@@ -1,4 +1,4 @@
-import './styles/DetailsJobs.css';
+import '../styles/DetailsJobs.css';
 
 const DetailsJob = ({ company, logo, logoBackground, position, postedAt, contract, location, website, apply, description, requirements, role }) => {
 

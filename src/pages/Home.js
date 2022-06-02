@@ -1,15 +1,20 @@
 import { useState } from 'react';
 import useFetch from '../hook/useFetch';
-import useFilter from '../components/useFilter';
+import useFilter from '../components/layouts/useFilter';
 
-import CardJob from '../components/CardJob';
-import SearchBar from '../components/SearchBar';
+import CardJob from '../components/layouts/CardJob';
+import SearchBar from '../components/layouts/SearchBar';
+import ErrorMessage from '../components/layouts/ErrorMessage';
 
 const Home = () => {
 
-    const [itensPage, setItensPage] = useState(6);
+    const moreItens = 6;
+
+    const [itensPage, setItensPage] = useState(moreItens);
 
     const { error, jobs } = useFetch();
+
+    console.log(jobs.length)
 
     const {
 
@@ -36,27 +41,42 @@ const Home = () => {
                 localEvent={handleSearchLocal}
             />
 
-            {error && <p className="alert-message">Oops! An error has occurred. <br /> Reload the page or go back to the home.</p>}
+            {error && <ErrorMessage text='Oops! An error has occurred.' />}
 
             <div className="container__jobs">
 
-                {userSearch(jobs) && userSearch(jobs).map((item, index) => (
+                {userSearch(jobs).length > 0
+                    ? userSearch(jobs).map((item, index) => (
 
-                    index < itensPage && (
+                        index < itensPage && (
 
-                        <CardJob key={item.id} {...item} optionTime={optionTime} />
+                            <CardJob
+                                key={item.id}
+                                {...item}
+                                optionTime={optionTime}
+                            />
 
-                    )
+                        )
 
-                ))}
+                    )) :
+
+                    <ErrorMessage text='Oops! No job has found.' />
+
+                }
 
             </div>
 
             <div className="button__c">
 
-                <button onClick={() => setItensPage(itensPage + 6)} className='button__loader'>
-                    Load More
-                </button>
+                {(userSearch(jobs).length > 0 &&
+                    itensPage <= jobs.length) &&
+
+                    <button
+                        onClick={() => setItensPage(itensPage + moreItens)} className='button__loader'>
+                        Load More
+                    </button>
+
+                }
 
             </div>
 
