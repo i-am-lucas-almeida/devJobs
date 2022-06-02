@@ -1,4 +1,4 @@
-@import '../../index.css';
+@import '../../styles/variables.css';
 
 .form__desktop{
     background-color: var(--dark-blue);

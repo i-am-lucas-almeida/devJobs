@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import DetailsJob from "../components/DetailsJob";
+import DetailsJob from "../components/layouts/DetailsJob";
 
 import dataJobs from '../data.json';
 
